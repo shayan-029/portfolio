@@ -1,0 +1,147 @@
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 6vw;
+    background: var(--header-bg);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--text);
+    text-decoration: none;
+}
+
+.nav-logo span {
+    color: var(--accent);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: var(--text);
+}
+
+.nav-cta {
+    background: var(--accent);
+    color: var(--text);
+    padding: 0.5rem 1.3rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.nav-cta:hover {
+    opacity: 0.85;
+}
+
+/* hide the real checkbox */
+.nav-toggle-input {
+    display: none;
+}
+
+/* hamburger icon — 3 bars */
+.nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.nav-hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: transform 0.25s, opacity 0.25s;
+}
+
+/* animate to X when open */
+.nav-toggle-input:checked~ul~.nav-right .nav-hamburger span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle-input:checked~ul~.nav-right .nav-hamburger span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle-input:checked~ul~.nav-right .nav-hamburger span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+@media (max-width: 680px) {
+    .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .nav-hamburger {
+        display: flex;
+    }
+
+    /* dropdown — hidden by default */
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        position: fixed;
+        top: 80px;
+        /* same as nav height */
+        left: 0;
+        right: 0;
+        background: var(--surface2);
+        backdrop-filter: blur(16px);
+        border-bottom: 1px solid var(--border);
+        padding: 0 6vw;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+
+    /* open when checkbox checked */
+    .nav-toggle-input:checked~.nav-links {
+        max-height: 400px;
+        padding: 1rem 6vw;
+        opacity: 1;
+    }
+
+    .nav-links a {
+        font-size: 0.95rem;
+        padding: 0.7rem 0;
+        border-bottom: 1px solid var(--border);
+        display: block;
+    }
+
+    .nav-links li:last-child a {
+        border-bottom: none;
+    }
+}

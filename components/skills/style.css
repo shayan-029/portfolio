@@ -1,0 +1,72 @@
+.skills-section {
+  background: var(--surface);
+}
+
+/* Category rows */
+.skills-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.skill-category {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.category-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* Tag row */
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.skill-tag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 8px 14px;
+  cursor: default;
+  transition: border-color 0.2s, transform 0.2s, background 0.2s;
+}
+
+.skill-tag:hover {
+  border-color: var(--accent2);
+  background: var(--surface);
+  transform: translateY(2px);
+}
+
+.skill-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+/* For brand icons that should keep their color, remove the filter above
+   and add a class like .skill-tag.colored .skill-icon { filter: none } */
+
+.skill-emoji {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.skill-name {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text);
+  white-space: nowrap;
+}

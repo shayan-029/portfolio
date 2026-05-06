@@ -1,0 +1,35 @@
+.whyme-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.whyme-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.8rem;
+  transition: all 0.2s linear;
+}
+
+.whyme-card:hover{
+  transform: scale(1.1);
+}
+
+.whyme-icon {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.whyme-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.whyme-desc {
+  font-size: 0.87rem;
+  color: var(--muted);
+  line-height: 1.65;
+}

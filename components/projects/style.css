@@ -1,0 +1,319 @@
+.projects {
+  background: var(--bg);
+  /* removed overflow: hidden — was clipping hover borders */
+}
+
+/* ── Header row ──────────────────────────────────────────────────── */
+.projects-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 2.5rem;
+  gap: 1rem;
+}
+
+.projects-header .section-sub {
+  margin-bottom: 0;
+}
+
+/* ── Arrow controls ──────────────────────────────────────────────── */
+.carousel-controls {
+  display: flex;
+  gap: 0.6rem;
+  flex-shrink: 0;
+}
+
+.carousel-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s, background 0.2s, transform 0.15s;
+}
+
+.carousel-btn:hover {
+  border-color: var(--accent);
+  background: var(--surface2);
+  transform: scale(1.08);
+}
+
+/* ── Outer wrapper: adds padding so hover border/shadow isn't clipped ── */
+.carousel-outer {
+  margin: 0 -4px;
+  /* compensate for padding */
+  overflow: hidden;
+  /* clip the sliding track */
+}
+
+.carousel-viewport {
+  padding: 4px;
+  /* space for border + shadow on hover */
+  width: 100%;
+}
+
+/* ── Track ───────────────────────────────────────────────────────── */
+.carousel-track {
+  display: flex;
+  gap: 1.5rem;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+
+/* ── Cards ───────────────────────────────────────────────────────── */
+.carousel-track .project-card {
+  min-width: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  /* flex set inline via JS */
+}
+
+.carousel-track .project-card:hover {
+  border-color: var(--muted2);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+}
+
+.carousel-track .project-card.featured {
+  border-color: var(--accent2);
+  box-shadow: 0 0 0 1px var(--accent2), 0 12px 32px rgba(79, 142, 247, 0.15);
+}
+
+/* ── Thumb ───────────────────────────────────────────────────────── */
+.project-thumb {
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--foreground);
+}
+
+.project-thumb img {
+  height: auto;
+  width: auto;
+  max-height: 120px;
+  max-width: 80%;
+  object-fit: contain;
+}
+
+/* ── Project info ────────────────────────────────────────────────── */
+.project-info {
+  padding: 1.25rem 1.5rem 1.5rem;
+}
+
+.project-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 0.8rem;
+}
+
+.tag {
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 100px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.tag-blue {
+  background: var(--tag-blue-bg);
+  color: var(--tag-blue-text);
+}
+
+.tag-purple {
+  background: var(--tag-purple-bg);
+  color: var(--tag-purple-text);
+}
+
+.project-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  letter-spacing: -0.01em;
+}
+
+.project-desc {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.project-description-box {
+  position: relative;
+}
+
+.project-description-box>.view-more {
+  display: none;
+  position: absolute;
+  right: -10px;
+  bottom: 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 1rem;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+  transform: scale(1);
+}
+
+.project-card:hover .view-more {
+  display: flex;
+}
+
+.project-description-box:hover>.view-more:hover {
+  border-color: var(--accent);
+  background: var(--surface2);
+  transform: scale(1.1);
+}
+
+/* ── Footer row ──────────────────────────────────────────────────── */
+.project-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.project-link {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.project-link:hover {
+  opacity: 0.75;
+}
+
+.show-image-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 5px 12px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--muted);
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.show-image-btn:hover {
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+/* ── Dots ────────────────────────────────────────────────────────── */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 2rem;
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: var(--muted2);
+  cursor: pointer;
+  transition: background 0.2s, width 0.3s;
+  padding: 0;
+}
+
+.carousel-dot.active {
+  background: var(--accent);
+  width: 24px;
+  border-radius: 4px;
+}
+
+/* ── Progress bar ────────────────────────────────────────────────── */
+.carousel-progress {
+  width: 100%;
+  height: 2px;
+  background: var(--border);
+  border-radius: 1px;
+  margin-top: 1rem;
+  overflow: hidden;
+}
+
+.carousel-progress-bar {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 1px;
+  width: 0%;
+  animation: progress-fill linear forwards;
+}
+
+.carousel-progress-bar.paused {
+  animation-play-state: paused;
+}
+
+@keyframes progress-fill {
+  from {
+    width: 0%;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+/* ── Responsive ──────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .project-thumb {
+    height: 160px;
+  }
+}
+
+@media (max-width: 600px) {
+  .projects-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .project-thumb {
+    height: 140px;
+  }
+
+  .project-info {
+    padding: 1rem 1.25rem 1.25rem;
+  }
+}
