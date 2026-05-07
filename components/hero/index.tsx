@@ -17,7 +17,7 @@ export const Hero = () => {
                     <h1>
                         Building Digital<br />
                         <span className="accent">Solutions</span> That<br />
-                        <span className="accent2">Actually Worksss</span>
+                        <span className="accent2">Actually Works</span>
                     </h1>
                     <p className="hero-desc">
                         I&apos;m Shayan. A Full Stack Developer & Digital Growth Specialist.
